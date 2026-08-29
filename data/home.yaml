@@ -1,0 +1,209 @@
+# 首页落地页数据（OINK landing 模型）
+# 布局对齐官方文档首页 https://oink.pgsty.com/zh/：
+#   hero → capabilities → cards → logo-wall → case-study → faq → cta
+# 分区字段参考：https://oink.pgsty.com/zh/docs/customize/home/
+sections:
+  - hero
+  - capabilities
+  - cards
+  - logo-wall
+  - case-study
+  - faq
+  - cta
+
+# ---------- 首屏 ----------
+hero:
+  eyebrow: 数字花园 · 公开学习
+  title_lines:
+    - 在时间里扎根
+    - 在文字里生长
+  lead: 这是我的数字花园，记录技术学习、阅读思考与生活感悟。
+  actions:
+    - label: 开始探索
+      url: docs/
+      icon: fa-solid fa-seedling
+      style: primary
+    - label: 去看博客
+      url: blog/
+      style: ghost
+
+# ---------- 价值主张（左右交替能力叙事） ----------
+capabilities:
+  eyebrow: 花园的价值
+  title: 一座数字花园所需的能力，开箱即用
+  text: 写作、记录与分享——把学习过程公开，让思考像植物一样慢慢生长。
+  items:
+    - ref: 01 / 技术笔记
+      title: 为持续学习而写
+      url: docs/
+      motto: 从第一行代码到完整实践，都留有痕迹
+      bullets:
+        - '[文档区](docs/)沉淀经过整理的技术笔记与实践记录'
+        - 提示块、标签页、步骤等**写作组件**开箱即用
+        - 公式与图示由 KaTeX 与 Mermaid 在本地渲染
+      value: 把学习过程写下来，理解才真正属于自己。
+      visual:
+        type: shell
+        brand: 数字花园
+        search: 搜索内容或执行命令
+        shortcut: ⌘ K
+        section: 花园地图
+        section_icon: fa-solid fa-map
+        items:
+          - { label: 文档, active: true }
+          - { label: 博客 }
+          - { label: 标签 }
+          - { label: 关于 }
+        eyebrow: 公开学习
+        title_lines:
+          - 慢慢写
+          - 慢慢长
+        rules: [70%, 55%, 80%, 40%]
+
+    - ref: 02 / 阅读与思考
+      title: 博客是思考的年轮
+      url: blog/
+      motto: 按时间流淌的随想、书评与工具记录
+      bullets:
+        - 按时间排列的文章，配按热度排序的[标签面板](tags/)
+        - 阅读、工具、生活——不必等到完美才发布
+        - 全站 [RSS](blog/index.xml) 订阅，随时跟进新芽
+      value: 写作是思考的草稿，博客是思考的年轮。
+      visual:
+        type: components
+        columns: 2
+        items:
+          - { icon: fa-solid fa-book, title: 读书笔记, detail: 与书的对话 }
+          - { icon: fa-solid fa-toolbox, title: 工具箱, detail: 好用的家伙什 }
+          - { icon: fa-solid fa-seedling, title: 生活随想, detail: 花园的日常 }
+          - { icon: fa-solid fa-tower-broadcast, title: 站点手记, detail: 这座花园怎么建成 }
+
+    - ref: 03 / 本地优先
+      title: 用 Hugo 搭建，一条命令构建
+      url: pages/about/
+      motto: 整座花园就是一份 Git 仓库
+      bullets:
+        - 一条 `hugo` 命令完成全部构建
+        - 无需 `npm install`，无外部运行时依赖
+        - 内容即 Markdown，托管在 [GitHub](https://github.com/mlosun/mlosun.com)
+      value: 简单、快速、可移植——花园可以搬去任何地方。
+      visual:
+        type: code
+        title: build.sh
+        lines:
+          - { class: c, prefix: '# ', text: 一条命令，一座花园 }
+          - { class: p, prefix: '$ ', text: hugo --gc --minify }
+
+# ---------- 花园的形态（六张卡片） ----------
+cards:
+  eyebrow: 花园的形态
+  title: 从种子到成熟
+  text: 内容按主题关联组织，可以随时回访、修改和完善，像花园里的植物一样慢慢生长。
+  columns: 3
+  items:
+    - title: 种子想法
+      meta: 萌芽
+      desc: 刚刚萌发的想法，还不够成熟，但值得记录。它们是未来文章的起点。
+      icon: fa-solid fa-lightbulb
+    - title: 生长中的笔记
+      meta: 生长
+      desc: 正在发展和完善的思考。连接不同领域的知识，逐渐形成自己的理解。
+      icon: fa-solid fa-pen-nib
+    - title: 成熟的文章
+      meta: 成熟
+      desc: 经过反复打磨的完整文章。逻辑清晰、论述充分，可以与他人分享。
+      icon: fa-solid fa-bookmark
+    - title: 双向链接
+      meta: 连接
+      desc: 笔记之间相互关联，形成知识网络。没有孤立的想法，只有等待发现的联系。
+      icon: fa-solid fa-link
+    - title: 非线性成长
+      meta: 结构
+      desc: 不像博客按时间排列，这里的笔记按主题和关联组织。随时回访、迭代和完善。
+      icon: fa-solid fa-arrows-rotate
+    - title: 公开学习
+      meta: 公开
+      desc: 将学习过程公开，在探索中犯错、修正和进步。学习不必等到完美才分享。
+      icon: fa-solid fa-book-open
+
+# ---------- 工具链（logo 墙） ----------
+logo-wall:
+  eyebrow: 工具链
+  title: 轻量的技术栈，一样不少
+  text: 不用打包器、不追框架版本，每个工具都只做一件事，组合起来就是整座花园。
+  columns: 4
+  items:
+    - name: Hugo
+      desc: 极速静态站点引擎
+      icon: fa-solid fa-bolt
+    - name: Markdown
+      desc: 全部内容的载体
+      icon: fa-brands fa-markdown
+    - name: Git
+      desc: 版本历史即修改记录
+      icon: fa-brands fa-git-alt
+    - name: GitHub
+      desc: 内容托管与自动部署
+      icon: fa-brands fa-github
+    - name: KaTeX
+      desc: 构建期渲染数学公式
+      icon: fa-solid fa-square-root-variable
+    - name: Mermaid
+      desc: 本地图示运行时
+      icon: fa-solid fa-diagram-project
+    - name: Lunr
+      desc: 离线全文检索
+      icon: fa-solid fa-magnifying-glass
+    - name: OINK
+      desc: "[主题](https://oink.pgsty.com/zh/)本身"
+      icon: fa-solid fa-paw
+
+# ---------- 站点档案（案例分区复用） ----------
+case-study:
+  eyebrow: 站点档案
+  title: 一座没有完工日期的园子
+  stats:
+    - { value: "2025", label: 开园年份 }
+    - { value: "3", label: 内容分区 }
+    - { value: "100%", label: 公开学习 }
+  quote: >
+    一座数字花园永远没有「完工」的一天——它像真正的园子一样，
+    随季节更替不断播种、修剪、生长。这里的一切都处于中间状态。
+  source: 关于这座花园
+  url: pages/about/
+
+# ---------- 常见问题 ----------
+faq:
+  eyebrow: 常见问题
+  title: 关于这座花园
+  style: accordion
+  items:
+    - question: 什么是数字花园？
+      answer: >
+        不同于按时间排列、写完即定格的博客，数字花园里的内容围绕**主题**组织，
+        处于从「种子」到「成熟」的不同生长阶段，并且会持续被回访、修订和完善。
+        想深入了解，可以读读 Maggie Appleton 的
+        [A Brief History & Ethos of the Digital Garden](https://maggieappleton.com/garden-history)。
+    - question: 这里的内容会一直变化吗？
+      answer: >
+        会。每篇笔记都可能随时修改、扩充甚至重写——公开学习的一部分，
+        就是不怕把不成熟的想法摆在台面上。
+    - question: 如何订阅更新？
+      answer: >
+        博客区提供全站 [RSS 订阅](blog/index.xml)，用任意阅读器订阅即可收到新文章。
+    - question: 可以分享或转载这里的内容吗？
+      answer: >
+        欢迎分享与引用，注明出处和原文链接即可。
+    - question: 站点是如何搭建的？
+      answer: >
+        由 [Hugo](https://gohugo.io) 构建，使用 [OINK](https://oink.pgsty.com/zh/) 主题，
+        内容托管在 [GitHub](https://github.com/mlosun/mlosun.com)。
+        搭建心得整理在[关于页](pages/about/)。
+
+# ---------- 行动号召 ----------
+cta:
+  title: 从一粒种子开始逛起。
+  text: 进入文档区看看正在生长的笔记，或者去博客里翻翻随想。
+  label: 开始探索
+  url: docs/
+  style: primary

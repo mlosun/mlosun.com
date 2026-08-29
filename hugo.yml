@@ -1,0 +1,135 @@
+# ============================================================
+# OINK 主题站点配置
+# https://oink.pgsty.com/zh/docs/customize/config/
+# 结构：站点身份（原生）→ params（主题参数）→ menu → markup
+#       → outputs → frontmatter → module → 其它
+# ============================================================
+
+# ---------- 站点身份与构建行为（Hugo 原生） ----------
+baseURL: "https://mlosun.com/"
+title: "数字花园 | Mlosun.com"
+timeZone: "Asia/Shanghai"                      # 删除会退回 UTC，全站日期偏移 8h
+defaultContentLanguage: zh-cn
+copyright: "© 数字花园 | Mlosun.com"            # params.copyright 未设时的兜底
+enableGitInfo: true                            # 「最后修改」与 commit 信息
+enableRobotsTXT: true
+enableEmoji: true                              # :smile: 简码
+hasCJKLanguage: true                           # 中文字数统计与摘要截断
+
+# ---------- OINK 主题参数 ----------
+params:
+  # …… 品牌与身份 ……
+  logo: "/favicon.svg"                         # 站点标识（导航/页脚/侧栏），复用 static/favicon.svg 的 M 花押
+  description: "个人数字花园 — 记录技术学习、阅读思考与生活感悟" # meta 兜底描述
+  author: "mlosun"                             # RSS 作者（map 带 email 才输出 <author>）
+  copyright:
+    authors: "数字花园 | Mlosun.com"            # 页脚署名，支持 Markdown
+    from_year: 2025
+  footer_center_info: "Powered by [Oink](https://oink.pgsty.com)" # 页脚中栏 Markdown
+  # theme_color / theme_color_dark：不写即用主题品牌色（回退 SCSS token，无法显性写出默认）
+
+  # …… 仓库链接（params 顶层键，勿放进 ui）……
+  github_repo: "https://github.com/mlosun/mlosun.com" # 内容仓库：「编辑本页/历史/issue」依赖
+  github_subdir: ""                            # 仓库根到站点根的子路径（站点在仓库根，留空）
+
+  # …… 搜索 ……
+  offline_search: true                         # 本地 Lunr 搜索 + 命令面板
+
+  # …… 评论（giscus，基于 GitHub Discussions）……
+  # 前提：镜像仓库已开启 Discussions 并安装 giscus App；Announcements 分类仅维护者可发起，防垃圾评论
+  comments:
+    enable: true                               # 站点级开启；单页 front matter `comments: false` 可关
+    type: giscus
+    giscus:
+      repo: mlosun/mlosun.com
+      repoId: R_kgDOUH4vHg
+      category: Announcements
+      categoryId: DIC_kwDOUH4vHs4DEcQ0
+      # 其余键留空即用主题默认（OINK 自带亮暗两套 giscus 配色，经 /css/ 跨域加载）
+
+  # …… UI 外观与组件 ……
+  ui:
+    dark_mode: true                            # 深色调色板 + 导航切换控件
+    backlinks: true                            # 右栏「反链」组
+    reading_time: true                         # 标题下阅读时长
+    lastmod_commit: hash                    # 页尾 commit 展示：subject / hash / none
+    page_context_menu:
+      assistant_links: true                    # 「在 ChatGPT / Claude 中打开」
+      links: []                                # 自定义外部操作，占位符 {url}/{title}/{markdown_url}
+    command_palette:
+      commands: []                             # 自定义命令：id/title/description/icon/keywords/url|action
+
+# ---------- 导航菜单（Hugo 原生 menu.main） ----------
+menu:
+  main:
+    - identifier: docs                         # 稳定标识，quick_links 按它匹配
+      name: 文档
+      pageRef: /docs
+      weight: 10
+    - identifier: blog
+      name:  博客
+      pageRef: /blog
+      weight: 20
+    - identifier: tags                         # 指向 /tags 自动渲染为标签芯片面板
+      name: 标签
+      pageRef: /tags
+      weight: 25
+    - identifier: about
+      name: 关于
+      pageRef: /pages/about
+      weight: 30
+
+# ---------- Goldmark 前置（主题短代码与 KaTeX 的硬性要求，必须站点级声明） ----------
+markup:
+  highlight:
+    noClasses: false                           # 输出 class，深浅色各一套配色
+  goldmark:
+    renderer:
+      unsafe: true                             # 步骤/卡片短代码输出 HTML
+    parser:
+      wrapStandAloneImageWithinParagraph: false # 块级图片可带属性行
+      attribute:
+        block: true                            # {.steps} {caption=…} 块级属性
+    extensions:
+      passthrough:
+        enable: true                           # \( \) $$ 数学公式（KaTeX）
+        delimiters:
+          block:
+            - ['\[', '\]']
+            - ["$$", "$$"]
+          inline:
+            - ['\(', '\)']
+  tableOfContents:
+    endLevel: 4                                # 右栏大纲收录到 h4（默认 3）
+
+# ---------- 输出格式（整体替换，改哪个键都要写全原有格式） ----------
+outputs:
+  home: [HTML, markdown, LLMS]                 # 每语言 llms.txt
+  page: [HTML, markdown]                       # 每页 .md（复制为 Markdown / AI 阅读）
+  section: [HTML, RSS, print, markdown]        # 分区 RSS + 整分区打印页 + .md
+
+# ---------- 内容日期映射（created/updated 自定义字段优先） ----------
+frontmatter:
+  date: [created, date, publishdate, pubdate, published]
+  lastmod: [updated, :git, lastmod, modified]
+  publishDate: [publishdate, pubdate, published, created, date]
+
+# ---------- 模块 ----------
+module:
+  hugoVersion:
+    extended: true
+    min: "0.160.1"
+  imports:
+    - path: github.com/pgsty/oink
+
+# ---------- 服务（GA4 统计，OINK 仅生产环境注入 gtag.js） ----------
+services:
+  googleAnalytics:
+    ID: G-0LZW6NDLSS
+
+# ---------- 本地预览响应头（giscus 自定义配色需跨域可读，生产端由 static/edgeone.json 配置） ----------
+server:
+  headers:
+    - for: /css/*
+      values:
+        Access-Control-Allow-Origin: "*"

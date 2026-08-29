@@ -1,0 +1,29 @@
+# 页脚多列链接数据（OINK fat footer）
+# 参考：https://oink.pgsty.com/zh/docs/customize/navigation/#footer
+# 单语言站使用 data/footer.yaml
+brand:
+  name: 数字花园 | Mlosun.com
+  tagline: 记录技术学习、阅读思考与生活感悟
+  slogan: 输出倒逼思考
+columns:
+  - title: 文档
+    links:
+      - label: 实践笔记
+        url: /docs/实践笔记/
+      - label: 我的清单
+        url: /docs/我的清单/
+      - label: 建站笔记
+        url: /docs/建站笔记/
+  - title: Pi Agent
+    links:
+      - label: 中文文档
+        url: /pi-agent/中文文档/
+      - label: Pi 扩展
+        url: /pi-agent/Pi-扩展/
+  - title: 项目
+    links:
+      - label: 关于本站
+        url: /pages/about/
+      - label: GitHub
+        url: https://github.com/mlosun/mlosun.com
+        external: true

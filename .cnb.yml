@@ -1,0 +1,24 @@
+include:
+    - https://cnb.cool/mlosun/base/pipeline/-/blob/main/Pipeline/Sync-to-Github.yml
+
+main:
+  push:
+    - name: Hugo构建与部署
+      docker:
+        image: ghcr.io/gohugoio/hugo:v0.165.0
+      imports:
+        - https://cnb.cool/mlosun/base/secret/-/blob/main/qcloud.yml
+      stages:
+        - name: 环境检查
+          script: git version && go version && hugo version
+        - name: Hugo 构建
+          script: |
+            # OINK 主题要求 go >= 1.27.0，而镜像内置 go 1.26.3 且默认 GOTOOLCHAIN=local
+            # 允许 Go 自动下载所需工具链，否则 `go mod download` 直接失败
+            export GOTOOLCHAIN=auto
+            # 文件路径包含中文等字符时会导致 Hugo 拿不到 Git 提交时间，执行以下命令修复此问题
+            git config core.quotePath false
+            hugo --minify
+        - name: 部署到 EdgeOne Pages
+          image: tencentcom/deploy-eopages:latest
+          script: edgeone pages deploy ./public -n mlosun-com -t $EdgeOne_Token
