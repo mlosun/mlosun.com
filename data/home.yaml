@@ -80,7 +80,7 @@ capabilities:
 
     - ref: 03 / 本地优先
       title: 用 Hugo 搭建，一条命令构建
-      url: pages/about/
+      url: about/
       motto: 整座花园就是一份 Git 仓库
       bullets:
         - 一条 `hugo` 命令完成全部构建
@@ -170,7 +170,7 @@ case-study:
     一座数字花园永远没有「完工」的一天——它像真正的园子一样，
     随季节更替不断播种、修剪、生长。这里的一切都处于中间状态。
   source: 关于这座花园
-  url: pages/about/
+  url: about/
 
 # ---------- 常见问题 ----------
 faq:
@@ -198,7 +198,7 @@ faq:
       answer: >
         由 [Hugo](https://gohugo.io) 构建，使用 [OINK](https://oink.pgsty.com/zh/) 主题，
         内容托管在 [GitHub](https://github.com/mlosun/mlosun.com)。
-        搭建心得整理在[关于页](pages/about/)。
+        搭建心得整理在[关于页](about/)。
 
 # ---------- 行动号召 ----------
 cta:

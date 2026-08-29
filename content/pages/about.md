@@ -2,6 +2,7 @@
 created: 2025-03-20
 title: 关于
 type: book
+url: about # 直接挂在根路径 mlosun.com/about
 sidebar_enabled: false # 独立页无侧栏
 breadcrumb: false
 ---

@@ -76,7 +76,7 @@ menu:
       weight: 25
     - identifier: about
       name: 关于
-      pageRef: /pages/about
+      pageRef: /about
       weight: 30
 
 # ---------- Goldmark 前置（主题短代码与 KaTeX 的硬性要求，必须站点级声明） ----------

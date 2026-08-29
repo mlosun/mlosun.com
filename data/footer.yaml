@@ -14,16 +14,10 @@ columns:
         url: /docs/我的清单/
       - label: 建站笔记
         url: /docs/建站笔记/
-  - title: Pi Agent
-    links:
-      - label: 中文文档
-        url: /pi-agent/中文文档/
-      - label: Pi 扩展
-        url: /pi-agent/Pi-扩展/
   - title: 项目
     links:
       - label: 关于本站
-        url: /pages/about/
+        url: /about/
       - label: GitHub
         url: https://github.com/mlosun/mlosun.com
         external: true
