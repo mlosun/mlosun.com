@@ -21,7 +21,9 @@ params:
   # …… 品牌与身份 ……
   logo: "/favicon.svg"                         # 站点标识（导航/页脚/侧栏），复用 static/favicon.svg 的 M 花押
   description: "个人数字花园 — 记录技术学习、阅读思考与生活感悟" # meta 兜底描述
-  author: "mlosun"                             # RSS 作者（map 带 email 才输出 <author>）
+  author:
+    name: "mlosun"                             # RSS 作者（map 带 email 才输出 <author>）
+    email: "mlosun@qq.com"
   copyright:
     authors: "数字花园 | Mlosun.com"            # 页脚署名，支持 Markdown
     from_year: 2025
@@ -126,10 +128,12 @@ module:
   imports:
     - path: github.com/pgsty/oink
 
-# ---------- 服务（GA4 统计，OINK 仅生产环境注入 gtag.js） ----------
+# ---------- 服务（GA4 统计，OINK 仅生产环境注入 gtag.js；RSS 不限条数，全量输出） ----------
 services:
   googleAnalytics:
     ID: G-0LZW6NDLSS
+  rss:
+    limit: -1
 
 # ---------- 本地预览响应头（giscus 自定义配色需跨域可读，生产端由 static/edgeone.json 配置） ----------
 server:
