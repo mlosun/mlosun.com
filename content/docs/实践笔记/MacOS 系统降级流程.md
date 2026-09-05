@@ -1,6 +1,7 @@
 ---
 created: 2025-07-28
 title: MacOS 系统降级流程
+weight: 13
 tags: [MacOS]
 ---
 本文介绍如何将 Intel 芯片的 MacOS 从 13.x 版本降级到 10.15 或 12.x 版本（已实测），其他版本仅供参考。

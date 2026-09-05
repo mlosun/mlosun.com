@@ -1,6 +1,7 @@
 ---
 created: 2024-12-01
 title: Linux 常用命令速查
+weight: 8
 tags: [Linux]
 description: 日常使用频率最高的 Linux 命令速查表，涵盖文件操作、进程管理、磁盘网络、权限系统等场景。
 ---

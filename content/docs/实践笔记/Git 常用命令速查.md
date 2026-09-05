@@ -1,6 +1,7 @@
 ---
 created: 2024-10-27
 title: Git 常用命令速查
+weight: 5
 description: 日常使用频率最高的 Git 命令速查表，涵盖基本操作、分支管理、查看历史、撤销与暂存、远程协作等场景。
 tags: [Git]
 ---

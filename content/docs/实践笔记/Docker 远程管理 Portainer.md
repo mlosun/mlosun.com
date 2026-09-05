@@ -1,6 +1,7 @@
 ---
 created: 2024-10-07
 title: Docker 远程管理 Portainer
+weight: 4
 tags: [Docker]
 description: 通过 Portainer 的 Web 界面远程管理多台主机的 Docker 容器。
 ---

@@ -1,6 +1,7 @@
 ---
 created: 2024-09-11
 title: Git 清理远端仓库全部提交历史
+weight: 7
 tags: [Git, GitHub]
 description: 删除 Git 仓库全部提交历史但保留仓库本身，适用于清理隐私信息或给仓库瘦身。
 ---

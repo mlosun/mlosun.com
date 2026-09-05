@@ -1,6 +1,7 @@
 ---
 created: 2025-08-30
 title: SSH 密钥配置指南
+weight: 11
 tags: [Linux, SSH]
 description: SSH 密钥的生成、绑定、配置与常用操作，从入门到进阶。
 ---

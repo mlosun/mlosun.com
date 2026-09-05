@@ -1,6 +1,7 @@
 ---
 created: 2025-05-09
 title: MySQL 常用 SQL 语句速查
+weight: 10
 tags: [MySQL, 数据库]
 description: MySQL 常用 SQL 语句速查，涵盖数据库、数据表、数据行的增删改查及常用数据类型。
 ---

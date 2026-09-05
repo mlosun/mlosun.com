@@ -1,6 +1,7 @@
 ---
 created: 2024-08-12
 title: Git 多仓库身份配置
+weight: 6
 tags: [Git]
 description: 在个人项目和公司项目中使用不同的 Git 用户名和邮箱提交，避免身份混淆。
 ---

@@ -1,6 +1,7 @@
 ---
 created: 2026-03-09
 title: VSCode 配置机制完整笔记
+weight: 12
 tags: [VSCode, 配置]
 ---
 ## 一、.vscode 目录概述

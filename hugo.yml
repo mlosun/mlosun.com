@@ -108,6 +108,10 @@ outputs:
   page: [HTML, markdown]                       # 每页 .md（复制为 Markdown / AI 阅读）
   section: [HTML, RSS, print, markdown]        # 分区 RSS + 整分区打印页 + .md
 
+# ---------- 分类体系（只保留 tags；categories 全站关闭） ----------
+taxonomies:
+  tag: tags
+
 # ---------- 内容日期映射（created/updated 自定义字段优先） ----------
 frontmatter:
   date: [created, date, publishdate, pubdate, published]

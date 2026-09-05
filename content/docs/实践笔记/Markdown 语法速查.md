@@ -1,6 +1,7 @@
 ---
 created: 2026-01-18
 title: Markdown 语法速查
+weight: 9
 tags: [Markdown]
 description: 涵盖标题、文本、列表、链接、表格、代码等常用 Markdown 语法，一份速查表快速上手。
 ---
